@@ -1,0 +1,109 @@
+/**
+ *============================================================================
+ * Name        : Mix Mix Game
+ * Author      : hunterr_196
+ * Version     : k.05
+ * Copyright   : Your copyright notice
+ * Description : Hello World in C++, ANSI-style
+ *============================================================================
+**/
+
+
+#include<bits/stdc++.h>
+#define ll long long
+#define pb push_back
+#define mp make_pair
+#define fi first
+#define se second
+#define sf(a) scanf("%d",&a);
+#define sf(a,b) scanf("%d %d",&a,&b);
+#define pf(a) printf("%d\n",a);
+#define loop(i,n) for(int i=0;i<n;i++)
+#define in(i,n,a) for(int i=0;i<n;i++) cin>>a[i];
+#define nitrous ios_base::sync_with_stdio(false); cin.tie(NULL);
+#define MAX 55
+using namespace std;
+
+/*bool compare(const pr<string,int> &a, const pr<string,int> &b)
+{
+    return a.se > b.se;
+}*/
+
+void solve(int);
+
+int main()
+{
+    nitrous;
+	int t,n;
+	cin>>t;
+
+	solve(t);
+
+    return 0;
+}
+
+
+void solve(int t)
+{
+	 int n;
+    ll check,check1,sum,z1,z2;
+	bool flag1;
+
+	while(t--)
+    {
+        flag1 = false;
+        sum = 0;
+        check = 0;
+        check1 = 0;
+
+        cin>>n>>z1>>z2;
+
+        int* a = new int[n];
+
+        loop(i,n)
+        {
+			cin>>a[i];
+			if( !flag1 && ( abs ( a[i] ) == abs(z1) || abs( a[i] ) == abs(z2) ) )
+            {
+				flag1 = true;
+				printf("1\n");
+			}
+		}
+
+        loop(i,n)
+        {
+            sum = 0;
+
+            check = 0;
+
+			sum += a[i];
+
+			loop(j,n)
+			{
+				if( (sum + a[j] == z1 || sum - a[j] == z1 || sum + a[j] == z2 || sum - a[j] == z2) )
+					check = 1;
+			}
+
+			check1 += check;
+			check = 0,sum = 0;
+
+			sum = sum - a[i];
+
+			loop(j,n)
+			{
+				if( (sum + a[j] == z1 || sum - a[j] == z1 || sum + a[j] == z2 || sum - a[j] == z2) )
+					check = 1;
+			}
+			check1 += check;
+		}
+
+        if(check1 == n * 2 && !flag1)
+        {
+			flag1 = true;
+			printf("2\n");
+		}
+		if(flag1 == false)
+			printf("0\n");
+
+    }
+}
