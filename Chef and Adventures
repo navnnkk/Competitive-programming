@@ -1,0 +1,89 @@
+/**
+ *============================================================================
+ * Name        : Chef and Adventures
+ * Author      : hunterr_196
+ * Version     : k.05
+ * Copyright   : Your copyright notice
+ * Description : Hello World in C++, ANSI-style
+ *============================================================================
+**/
+
+
+#include<bits/stdc++.h>
+#define ll long long
+#define pb push_back
+#define mp make_pair
+#define fi first
+#define se second
+#define sf(a) scanf("%d",&a);
+#define sf1(a,b) scanf("%d %d",&a,&b);
+#define pf(a) printf("%d\n",a);
+#define loop(i,n) for(int i=0;i<n;i++)
+#define in(i,n,a) for(int i=0;i<n;i++) cin>>a[i];
+#define nitrous ios_base::sync_with_stdio(false); cin.tie(NULL);
+using namespace std;
+
+/*bool compare(const pr<string,int> &a, const pr<string,int> &b)
+{
+    return a.se > b.se;
+}*/
+
+int main()
+{
+	int t,n,m,x,y,rem1,rem2,rem11,rem22;
+	cin>>t;
+
+	while(t--) {
+
+        cin>>n>>m>>x>>y;
+
+        if( (n == 1 && m == 1) || (x == 1 && y == 1) )
+            cout<<"Chefirnemo\n";
+        else
+        {
+            if(x == 1 && y != 1)
+            {
+                rem1 = m % y;
+                rem2 = (m - 1) % y;
+
+                if(n != 1)
+                {
+                    if(rem1 == 1 || rem2 == 1)
+                        cout<<"Chefirnemo\n";
+                }
+                else
+                    cout<<"Pofik\n";
+            }
+            else if(x != 1 && y == 1)
+            {
+                rem1 = n % x;
+                rem2 = (n - 1) % x;
+
+                if(m != 1)
+                {
+                    if(rem1 == 1 || rem2 == 1)
+                        cout<<"Chefirnemo\n";
+                }
+                else
+                    cout<<"Pofik\n";
+            }
+            else
+            {
+
+                rem1 = (n - 1) % x;
+                rem2 = (m - 1) % y;
+
+                rem11 = n % x;
+                rem22 = m % y;
+
+                if(rem1 == rem2 && rem2 == 1)
+                    cout<<"Chefirnemo\n";
+                else if(rem11 == rem22 && rem22 == 1)
+                    cout<<"Chefirnemo\n";
+                else
+                    cout<<"Pofik\n";
+            }
+        }
+	}
+    return 0;
+}
