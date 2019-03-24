@@ -1,0 +1,57 @@
+/**
+ *============================================================================
+ * Name        : Judging Delay
+ * Author      : hunterr_196
+ * Version     : k.05
+ * Copyright   : Your copyright notice
+ * Description : Hello World in C++, ANSI-style
+ *============================================================================
+**/
+
+
+#include<bits/stdc++.h>
+#define ll long long
+#define pb push_back
+#define mp make_pair
+#define fi first
+#define se second
+#define sf(a) scanf("%d",&a);
+#define sf1(a,b) scanf("%d %d",&a,&b);
+#define pf(a) printf("%d\n",a);
+#define loop(i,n) for(int i=0;i<n;i++)
+#define in(i,n,a) for(int i=0;i<n;i++) cin>>a[i];
+#define nitrous ios_base::sync_with_stdio(false); cin.tie(NULL);
+using namespace std;
+
+/*bool compare(const pr<string,int> &a, const pr<string,int> &b)
+{
+    return a.se > b.se;
+}*/
+
+int main()
+{
+	int t,n,a,b;
+	cin>>t;
+
+	while(t--)
+    {
+        int cnt = 0;
+        cin>>n;
+        vector<pair<int,int>>v;
+
+        loop(i,n)
+        {
+            cin>>a>>b;
+            v.pb(mp(a,b));
+        }
+
+        loop(i,n)
+        {
+            if(v[i].second - v[i].first > 5)
+                cnt++;
+        }
+        cout<<cnt<<endl;
+    }
+
+    return 0;
+}
