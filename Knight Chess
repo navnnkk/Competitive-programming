@@ -1,0 +1,97 @@
+/**
+ *============================================================================
+ * Name        : Knight Chess
+ * Author      : hunterr_196
+ * Version     : k.05
+ * Copyright   : Your copyright notice
+ * Description : Hello World in C++, ANSI-style
+ *============================================================================
+**/
+
+
+#include<bits/stdc++.h>
+#define ll long long
+#define pb push_back
+#define mp make_pair
+#define fi first
+#define se second
+#define sf(a) scanf("%d",&a);
+#define sf1(a,b) scanf("%d %d",&a,&b);
+#define pf(a) printf("%d\n",a);
+#define loop(i,n) for(int i=0;i<n;i++)
+#define in(i,n,a) for(int i=0;i<n;i++) cin>>a[i];
+#define nitrous ios_base::sync_with_stdio(false); cin.tie(NULL);
+using namespace std;
+
+/*bool compare(const pr<string,int> &a, const pr<string,int> &b)
+{
+    return a.se > b.se;
+}*/
+
+int x_dir[8] = {  2, 2, 1, 1, -1, -1, -2, -2 };
+int y_dir[8] = {  1, -1, 2, -2, 2, -2, 1, -1 };
+
+int main()
+{
+    nitrous;
+	int t,a,b,new_x_dir,new_y_dir,n;
+	bool x1,x2,x3,x4,x5,x6,x7,x8,x9;
+	cin>>t;
+
+	while(t--)
+    {
+        cin>>n;
+        vector<pair<int,int>>v;
+
+        loop(i,n)
+        {
+            cin>>a>>b;
+            v.pb(mp(a,b));
+        }
+        cin>>a>>b;
+
+        x1 = x2 = x3 = x4 = x5 = x6 = x7 = x8 = x9 = false;
+
+        loop(i,n)
+        {
+            loop(j,8)
+            {
+                new_x_dir = v[i].fi + x_dir[j];
+                new_y_dir = v[i].se + y_dir[j];
+
+                if(new_x_dir == a+1 && new_y_dir == b+1)
+					x1=true;
+
+				else if(new_x_dir == a && new_y_dir == b+1)
+					x2=true;
+
+				else if(new_x_dir == a-1 && new_y_dir == b+1)
+					x3=true;
+
+				else if(new_x_dir == a+1 && new_y_dir == b)
+					x4=true;
+
+				else if(new_x_dir == a && new_y_dir == b)
+					x5=true;
+
+				else if(new_x_dir == a-1 && new_y_dir == b)
+					x6=true;
+
+				else if(new_x_dir == a+1 && new_y_dir == b-1)
+					x7=true;
+
+				else if(new_x_dir == a && new_y_dir == b-1)
+					x8=true;
+
+				else if(new_x_dir == a-1 && new_y_dir == b-1)
+					x9=true;
+            }
+        }
+        if(  x1 == true && x2 == true && x3 == true && x4 == true && x5 == true && x6 == true && x7 == true && x8 == true && x9 == true )
+            cout<<"YES\n";
+        else
+            cout<<"NO\n";
+    }
+
+    return 0;
+}
