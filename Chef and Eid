@@ -52,7 +52,7 @@ int main()
             diff_1 = v[i+1] - v[i];
             diff = min(diff_1,diff);
         }
-        cout<<diff<<"\n";
+        cout<<diff<<endl;
     }
     return 0;
 }
